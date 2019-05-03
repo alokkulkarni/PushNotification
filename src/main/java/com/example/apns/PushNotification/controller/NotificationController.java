@@ -9,6 +9,7 @@ import com.clevertap.apns.Notification;
 import com.clevertap.apns.NotificationResponse;
 import com.clevertap.apns.clients.ApnsClientBuilder;
 import com.example.apns.PushNotification.repository.InAppNotificationPriorityRepository;
+import com.example.apns.PushNotification.util.DeviceDetailsBuilder;
 import com.example.apns.PushNotification.util.ExtendedNotification;
 import com.example.apns.PushNotification.domain.NotificationDetails;
 import com.example.apns.PushNotification.repository.DeviceRepository;
@@ -345,6 +346,12 @@ public class NotificationController {
                 .withDeviceType(deviceDetails.getDeviceType().isEmpty() ? "iPhone" : deviceDetails.getDeviceType())
                 .withStatus(deviceDetails.getStatus().isEmpty() ? "active" : deviceDetails.getStatus())
                 .withIsMaster(deviceDetails.getMaster() == null ? false : deviceDetails.getMaster())
+                .withAllowsVOIP(deviceDetails.getAllowsVOIP().isEmpty() ? "false" : deviceDetails.getAllowsVOIP())
+                .withCarrierName(deviceDetails.getCarrierName().isEmpty() ? " ": deviceDetails.getCarrierName())
+                .withIsoCountryCode(deviceDetails.getIsoCountryCode().isEmpty() ? " ":deviceDetails.getIsoCountryCode())
+                .withMobileCountryCode(deviceDetails.getMobileCountryCode().isEmpty() ? " ": deviceDetails.getMobileCountryCode())
+                .withMobileNetworkCode(deviceDetails.getMobileNetworkCode().isEmpty() ? " ": deviceDetails.getMobileNetworkCode())
+                .withPhysicalDeviceID(deviceDetails.getPhysicalDeviceID().isEmpty() ? " ": deviceDetails.getPhysicalDeviceID())
                 .build();
 
         return deviceRepository.save(details);
