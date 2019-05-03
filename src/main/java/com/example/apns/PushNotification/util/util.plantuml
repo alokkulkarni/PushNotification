@@ -1,0 +1,345 @@
+@startuml
+
+title __UTIL's Class Diagram__\n
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class DeviceDetailsBuilder {
+          - customerId : String
+          - aid : String
+          - deviceToken : String
+          - deviceName : String
+          - deviceOS : String
+          - deviceBundleIdentifier : String
+          - deviceType : String
+          - deviceSerialNumber : String
+          - deviceIMEINumber : String
+          - devicedeploymentTarget : String
+          - deviceApplicationVersion : String
+          - deviceBuild : String
+          - status : String
+          - DeviceDetailsBuilder()
+          {static} + aDeviceDetails()
+          + withCustomerId()
+          + withAid()
+          + withDeviceToken()
+          + withDeviceName()
+          + withDeviceOS()
+          + withDeviceBundleIdentifier()
+          + withDeviceType()
+          + withDeviceSerialNumber()
+          + withDeviceIMEINumber()
+          + withDevicedeploymentTarget()
+          + withDeviceApplicationVersion()
+          + withDeviceBuild()
+          + withStatus()
+          + but()
+          + build()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class ExtendedNotification {
+          # ExtendedNotification()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class Builder {
+          - mapper : ObjectMapper
+          - root : HashMap<String, Object>
+          - aps : HashMap<String, Object>
+          - alert : HashMap<String, Object>
+          - token : String
+          - topic : String
+          - collapseId : String
+          - expiration : long
+          - priority : Priority
+          - uuid : UUID
+          + Builder()
+          + mutableContent()
+          + mutableContent()
+          + contentAvailable()
+          + contentAvailable()
+          + alertBody()
+          + alertTitle()
+          + sound()
+          + category()
+          + badge()
+          + customField()
+          + topic()
+          + collapseId()
+          + expiration()
+          + uuid()
+          + priority()
+          + size()
+          + build()
+      }
+    }
+  }
+  
+
+  class Builder {
+      - mapper : ObjectMapper
+      - root : HashMap<String, Object>
+      - aps : HashMap<String, Object>
+      - alert : HashMap<String, Object>
+      - token : String
+      - topic : String
+      - collapseId : String
+      - expiration : long
+      - priority : Priority
+      - uuid : UUID
+      + Builder()
+      + mutableContent()
+      + mutableContent()
+      + contentAvailable()
+      + contentAvailable()
+      + alertBody()
+      + alertTitle()
+      + sound()
+      + category()
+      + badge()
+      + customField()
+      + topic()
+      + collapseId()
+      + expiration()
+      + uuid()
+      + priority()
+      + size()
+      + build()
+  }
+  
+
+  enum Priority {
+    IMMEDIATE
+    POWERCONSIDERATION
+    code
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class InAppNotificationResponse {
+          - id : String
+          - status : String
+          - systemId : String
+          - systemDate : String
+          - alertBody : String
+          - alertTitle : String
+          - category : String
+          - notificationParams : Map<String, Object>
+          - customParams : Map<String, Object>
+          - priority : String
+          + InAppNotificationResponse()
+          + InAppNotificationResponse()
+          + getId()
+          + setId()
+          + getStatus()
+          + setStatus()
+          + getSystemId()
+          + setSystemId()
+          + getSystemDate()
+          + setSystemDate()
+          + getAlertBody()
+          + setAlertBody()
+          + getAlertTitle()
+          + setAlertTitle()
+          + getCategory()
+          + setCategory()
+          + getNotificationParams()
+          + setNotificationParams()
+          + getCustomParams()
+          + setCustomParams()
+          + getPriority()
+          + setPriority()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class NotificationRequest {
+          - alertTitle : String
+          - alertBody : String
+          - customParams : Map<String, Object>
+          - notificationParams : Map<String, Object>
+          - badge : int
+          - isSilent : boolean
+          - isInAppNotification : boolean
+          - isPushNotification : boolean
+          - isMutableContent : boolean
+          - mutableContent : String
+          - hasExpiration : boolean
+          - expiration : long
+          - category : String
+          - systemId : String
+          + NotificationRequest()
+          + NotificationRequest()
+          + NotificationRequest()
+          + getAlertTitle()
+          + setAlertTitle()
+          + getAlertBody()
+          + setAlertBody()
+          + getCustomParams()
+          + setCustomParams()
+          + getNotificationParams()
+          + setNotificationParams()
+          + getBadge()
+          + setBadge()
+          + isSilent()
+          + setSilent()
+          + isInAppNotification()
+          + setInAppNotification()
+          + isPushNotification()
+          + setPushNotification()
+          + isMutableContent()
+          + setMutableContent()
+          + getMutableContent()
+          + setMutableContent()
+          + isHasExpiration()
+          + setHasExpiration()
+          + getExpiration()
+          + setExpiration()
+          + getPriority()
+          + setPriority()
+          + getCategory()
+          + setCategory()
+          + getSystemId()
+          + setSystemId()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      enum Priority {
+        IMMEDIATE
+        POWERCONSIDERATION
+        code
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class RemoteConfigRequest {
+          - expiration : LocalDate
+          - status : String
+          - category : String
+          - isPopup : Boolean
+          - isConditional : Boolean
+          - conditionParam : String
+          - customParams : Map<String, Object>
+          + RemoteConfigRequest()
+          + RemoteConfigRequest()
+          + getExpiration()
+          + setExpiration()
+          + getStatus()
+          + setStatus()
+          + getCategory()
+          + setCategory()
+          + getCustomParams()
+          + setCustomParams()
+          + getPopup()
+          + setPopup()
+          + getConditional()
+          + setConditional()
+          + getConditionParam()
+          + setConditionParam()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class RemoteConfigResponse {
+          - id : String
+          - configSentDate : String
+          - expiration : LocalDate
+          - status : String
+          - category : String
+          - isPopup : Boolean
+          - isConditional : Boolean
+          - conditionParam : String
+          - configParams : String
+          + RemoteConfigResponse()
+          + RemoteConfigResponse()
+          + getId()
+          + getConfigSentDate()
+          + getExpiration()
+          + getStatus()
+          + getCategory()
+          + getPopup()
+          + getConfigParams()
+          + getConditional()
+          + getConditionParam()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.util {
+      class RemoteConfigResponseBuilder {
+          - mapper : ObjectMapper
+          - root : HashMap<String, Object>
+          - id : String
+          - configSentDate : String
+          - expiration : LocalDate
+          - status : String
+          - category : String
+          - isPopup : Boolean
+          - isConditional : Boolean
+          - conditionParam : String
+          - RemoteConfigResponseBuilder()
+          {static} + aRemoteConfigResponse()
+          + withId()
+          + withConfigSentDate()
+          + withExpiration()
+          + withStatus()
+          + withCategory()
+          + withisPopup()
+          + withConfigParams()
+          + withIsConditional()
+          + withConditionParam()
+          + build()
+      }
+    }
+  }
+  
+
+  ExtendedNotification -up-|> Notification
+  ExtendedNotification +-down- Builder
+  ExtendedNotification +-down- Builder
+  ExtendedNotification +-down- Priority
+  NotificationRequest o-- Priority : priority
+  NotificationRequest +-down- Priority
+  RemoteConfigRequest o-- ConfigType : configType
+  RemoteConfigResponse +-down- RemoteConfigResponseBuilder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

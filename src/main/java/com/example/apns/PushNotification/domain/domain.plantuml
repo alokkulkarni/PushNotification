@@ -1,0 +1,225 @@
+@startuml
+
+title __DOMAIN's Class Diagram__\n
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.domain {
+      class DeviceDetails {
+          - id : String
+          - customerId : String
+          - aid : String
+          - deviceToken : String
+          - deviceName : String
+          - deviceOS : String
+          - deviceBundleIdentifier : String
+          - deviceType : String
+          - deviceSerialNumber : String
+          - deviceIMEINumber : String
+          - devicedeploymentTarget : String
+          - deviceApplicationVersion : String
+          - deviceBuild : String
+          - status : String
+          + DeviceDetails()
+          + DeviceDetails()
+          + getId()
+          + getCustomerId()
+          + setCustomerId()
+          + getAid()
+          + setAid()
+          + getDeviceToken()
+          + setDeviceToken()
+          + getDeviceName()
+          + setDeviceName()
+          + getDeviceOS()
+          + setDeviceOS()
+          + getDeviceBundleIdentifier()
+          + setDeviceBundleIdentifier()
+          + getDeviceType()
+          + setDeviceType()
+          + getDeviceSerialNumber()
+          + setDeviceSerialNumber()
+          + getDeviceIMEINumber()
+          + setDeviceIMEINumber()
+          + getDevicedeploymentTarget()
+          + setDevicedeploymentTarget()
+          + getDeviceApplicationVersion()
+          + setDeviceApplicationVersion()
+          + getDeviceBuild()
+          + setDeviceBuild()
+          + getStatus()
+          + setStatus()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.domain {
+      class InAppNotificationPriority {
+          - id : String
+          - category : String
+          - priority : String
+          - priorityCode : int
+          + InAppNotificationPriority()
+          + InAppNotificationPriority()
+          + getId()
+          + getCategory()
+          + setCategory()
+          + getPriority()
+          + setPriority()
+          + getPriorityCode()
+          + setPriorityCode()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.domain {
+      class NotificationDetails {
+          - id : String
+          - customerID : String
+          - aid : String
+          - notificationSentDate : LocalDate
+          - expiration : Long
+          - status : String
+          - systemId : String
+          - systemDate : String
+          - alertBody : String
+          - topic : String
+          - alertTitle : String
+          - category : String
+          - notificationParams : Map<String, Object>
+          - customParams : Map<String, Object>
+          - isMutableContent : Boolean
+          - inAppPriority : String
+          - pushPriority : String
+          - size : int
+          - contentAvailable : boolean
+          - silent : boolean
+          - inAppNotification : boolean
+          - pushNotification : boolean
+          + NotificationDetails()
+          + NotificationDetails()
+          + getId()
+          + getCustomerID()
+          + setCustomerID()
+          + getAid()
+          + setAid()
+          + getNotificationSentDate()
+          + setNotificationSentDate()
+          + getExpiration()
+          + setExpiration()
+          + getStatus()
+          + setStatus()
+          + getSystemId()
+          + setSystemId()
+          + getSystemDate()
+          + setSystemDate()
+          + getAlertBody()
+          + setAlertBody()
+          + getTopic()
+          + setTopic()
+          + getAlertTitle()
+          + setAlertTitle()
+          + getCategory()
+          + setCategory()
+          + getNotificationParams()
+          + setNotificationParams()
+          + getCustomParams()
+          + setCustomParams()
+          + getMutableContent()
+          + setMutableContent()
+          + getInAppPriority()
+          + setInAppPriority()
+          + getPushPriority()
+          + setPushPriority()
+          + getSize()
+          + setSize()
+          + isContentAvailable()
+          + setContentAvailable()
+          + isSilent()
+          + setSilent()
+          + isInAppNotification()
+          + setInAppNotification()
+          + isPushNotification()
+          + setPushNotification()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.domain {
+      class RemoteConfig {
+          - id : String
+          - configSentDate : LocalDate
+          - expiration : LocalDate
+          - status : String
+          - category : String
+          - isPopup : Boolean
+          - isConditional : Boolean
+          - conditionParam : String
+          - customParams : Map<String, Object>
+          + RemoteConfig()
+          + RemoteConfig()
+          + getId()
+          + getConfigSentDate()
+          + setConfigSentDate()
+          + getExpiration()
+          + setExpiration()
+          + getStatus()
+          + setStatus()
+          + getCategory()
+          + setCategory()
+          + getCustomParams()
+          + setCustomParams()
+          + getPopup()
+          + setPopup()
+          + getConditional()
+          + setConditional()
+          + getConditionParam()
+          + setConditionParam()
+          + getConfigType()
+          + setConfigType()
+          + equals()
+          + hashCode()
+          + toString()
+      }
+    }
+  }
+  
+
+  package com.example.apns.PushNotification {
+    package com.example.apns.PushNotification.domain {
+      enum ConfigType {
+        ABTesting
+        Interstetial
+        ParameterChange
+        code
+      }
+    }
+  }
+  
+
+  RemoteConfig o-- ConfigType : configType
+  RemoteConfig +-down- ConfigType
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
