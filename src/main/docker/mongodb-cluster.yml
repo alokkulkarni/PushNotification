@@ -1,10 +1,10 @@
 version: '2'
 services:
     overnightcarrepairs-mongodb:
-        image: mongo:4.0.2
+        image: mongo:4.0.4
         ports:
             - "27017:27017"
-        command: mongos --configdb overnightcarrepairs-mongodb-config
+        command: mongos --configdb pushNotification-mongodb-config
     overnightcarrepairs-mongodb-node:
         build:
             context: .
@@ -12,5 +12,5 @@ services:
         command: mongod --replSet rs1 --noprealloc --smallfiles
     overnightcarrepairs-mongodb-config:
         image: mongo:4.0.2
-        container_name: overnightcarrepairs-mongodb-config
+        container_name: pushNotification-mongodb-config
         command: mongod --noprealloc --smallfiles --configsvr --dbpath /data/db
