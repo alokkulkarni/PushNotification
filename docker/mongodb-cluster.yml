@@ -7,7 +7,7 @@ services:
         command: mongos --configdb pushNotification-mongodb-config
     overnightcarrepairs-mongodb-node:
         build:
-            context: .
+            context: ""
             dockerfile: mongodb/MongoDB.Dockerfile
         command: mongod --replSet rs1 --noprealloc --smallfiles
     overnightcarrepairs-mongodb-config:

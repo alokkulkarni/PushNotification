@@ -10,5 +10,4 @@ surefire-reports/
 test-classes/
 test-results/
 www/
-!*.jar
 !*.war
