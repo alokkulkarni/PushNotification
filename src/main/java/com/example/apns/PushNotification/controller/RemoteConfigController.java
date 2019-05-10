@@ -103,7 +103,7 @@ public class RemoteConfigController {
         }
 
         config.setConfigSentDate(LocalDate.now());
-
+        System.out.println(remoteConfig.getCustomParams());
         if (remoteConfig.getCustomParams() != null) {
             config.setCustomParams(remoteConfig.getCustomParams());
         } else {

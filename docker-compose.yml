@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+    mongodb:
+        image: mongo:4.0.9
+        container_name: "mongodb"
+        ports:
+            - 27017:27017
+        command: --smallfiles
+    app:
+        network_mode: "host"
+        image: pushnotification/pushnotification
+        ports:
+            - 8080:8080
+            - 127.0.0.1:2197:2197
+            - 127.0.0.1:443:443
+            - 27017:27017
+#        extra_hosts:
+#            - "dockerhost:$DOCKERHOST"
+#        links:
+#            - mongodb
