@@ -1,0 +1,15 @@
+- name: load persistent volume claim
+  k8s:
+    kind: PersistentVolumeClaim
+    api_version: v1
+    name: mongo-pv-claim # Use kub_variables in playbook
+    namespace: push # Use kub_variables in playbook
+    definition:
+      spec:
+        storageClassName: manual # Use kub_variables in playbook
+        volumeName: mongo-pv-claim # Use kub_variables in playbook
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi # Use kub_variables in playbook

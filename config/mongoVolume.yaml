@@ -1,0 +1,18 @@
+- name: load persistent volume
+  k8s:
+    kind: PersistentVolume
+    api_version: v1
+    name: push-mongo-volume # Use kub_variables in playbook
+    namespace: 'push' # Use kub_variables in playbook
+    definition:
+      spec:
+        storageClassName: manual # Use kub_variables in playbook
+        volumeName: push-mongo-volume # Use kub_variables in playbook
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+          hostPath:
+            path:  /data/mongo1 # Use kub_variables in playbook
+            type: DirectoryOrCreate

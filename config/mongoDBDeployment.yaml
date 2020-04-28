@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongoDB
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      appdb: mongoDB
+  template:
+    metadata:
+      labels:
+        app: mongoDB
+    spec:
+      containers:
+      - name: mongoDB
+        image: mongo:4.0.9
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+          - name:  hostvol
+          mountPath:  /data/db
+      volumes:
+        - name: hostvol
+          persistentVolumeClaim:
+          claimName: mongo-pv-claim
